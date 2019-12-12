@@ -1,0 +1,23 @@
+package DatabaseProject.features.scholarshipverification.usecases;
+
+import DatabaseProject.core.annotations.UseCase;
+import java.sql.SQLException;
+
+@UseCase(code = 112)
+public interface ScholarshipRequestByStudent {
+    void insertRequestIntoDatabase(String userName, String destinationUniversity, String field, String startDate)
+            throws SQLException, UserNotFoundException;
+
+    class UserNotFoundException extends Exception {
+        private String message;
+
+        public UserNotFoundException(String message) {
+            this.message = message;
+        }
+
+        @Override
+        public String getMessage() {
+            return message;
+        }
+    }
+}
