@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.sql.SQLException;
 
 import DatabaseProject.Exceptions.InvalidScholarshipStatusException;
+import DatabaseProject.Exceptions.UserNotLoggedInException;
 import DatabaseProject.features.scholarshipverification.impl.*;
 import DatabaseProject.features.scholarshipverification.usecases.*;
 import DatabaseProject.features.usermanagement.impl.LoginImpl;
@@ -106,6 +107,8 @@ public class Main {
                     ScholarshipRequestByStudent scholarshipRequestByStudent = new ScholarshipRequestByStudentImpl();
                     scholarshipRequestByStudent.insertRequestIntoDatabase(userName, destinationUniversity, field, startDate);
                 } catch (ScholarshipRequestByStudent.UserNotFoundException e) {
+                    System.err.println(e.getMessage());
+                } catch (UserNotLoggedInException e) {
                     System.err.println(e.getMessage());
                 }
             }

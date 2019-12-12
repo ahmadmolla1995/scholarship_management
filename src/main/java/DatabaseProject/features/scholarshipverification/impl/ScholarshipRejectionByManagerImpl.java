@@ -26,6 +26,5 @@ public class ScholarshipRejectionByManagerImpl implements ScholarshipRejectionBy
                     + "where scholarship_id = " + scholarshipID + ";";
             statement.execute(sqlQuery);
         }
-        
     }
 }
