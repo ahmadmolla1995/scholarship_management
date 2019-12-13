@@ -2,6 +2,7 @@ package DatabaseProject.features.scholarshipverification.impl;
 
 import DatabaseProject.DatabaseConfig;
 import DatabaseProject.Exceptions.InvalidScholarshipStatusException;
+import DatabaseProject.Exceptions.UserNotLoggedInException;
 import DatabaseProject.core.annotations.Service;
 import DatabaseProject.features.scholarshipverification.usecases.ScholarshipRejectionByManager;
 
@@ -11,7 +12,8 @@ import java.sql.Statement;
 
 @Service
 public class ScholarshipRejectionByManagerImpl implements ScholarshipRejectionByManager {
-    public void reject(int scholarshipID) throws ScholarshipIDNotFoundException, SQLException, InvalidScholarshipStatusException {
+    public void reject(int scholarshipID) throws ScholarshipIDNotFoundException, SQLException,
+            InvalidScholarshipStatusException, UserNotLoggedInException {
 
         Statement statement = DatabaseConfig.getConnection().createStatement();
         String existenceCheck = "select * from scholarship_request where scholarship_id = " + scholarshipID + ";";
@@ -21,6 +23,8 @@ public class ScholarshipRejectionByManagerImpl implements ScholarshipRejectionBy
             throw new ScholarshipRejectionByManager.ScholarshipIDNotFoundException("scholarship id not found");
         else if (!resultSet.getString("status").equals("AcceptedBySupervisor"))
             throw new InvalidScholarshipStatusException("scholarship status should be AcceptedBySupervisor");
+        else if (!resultSet.getBoolean("loggedin"))
+            throw new UserNotLoggedInException("user is not loggedin");
         else {
             String sqlQuery = "update scholarship_request set status = \"RejectedByManager\""
                     + "where scholarship_id = " + scholarshipID + ";";
@@ -28,3 +32,4 @@ public class ScholarshipRejectionByManagerImpl implements ScholarshipRejectionBy
         }
     }
 }
+

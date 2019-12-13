@@ -17,8 +17,11 @@ public class LogoutImpl implements Logout {
 
         if(!resultSet.next())
             throw new UserNotFoundException("User not found! you can not logout!");
-
-        String sqlQuery = "update user set loggedin = false where user_name = " + "\"" + userName + "\"" + ";";
-        statement.execute(sqlQuery);
+        else if(!resultSet.getBoolean("loggedin"))
+            System.out.println("user is logged out now!");
+        else {
+            String sqlQuery = "update user set loggedin = false where user_name = " + "\"" + userName + "\"" + ";";
+            statement.execute(sqlQuery);
+        }
     }
 }

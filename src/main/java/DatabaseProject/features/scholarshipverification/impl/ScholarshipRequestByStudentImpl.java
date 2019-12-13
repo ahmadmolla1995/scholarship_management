@@ -5,7 +5,6 @@ import DatabaseProject.Exceptions.UserNotLoggedInException;
 import DatabaseProject.core.annotations.Service;
 import DatabaseProject.features.scholarshipverification.usecases.ScholarshipRequestByStudent;
 import DatabaseProject.models.ScholarshipStatus;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,7 +21,7 @@ public class ScholarshipRequestByStudentImpl implements ScholarshipRequestByStud
         if (!resultSet.next())
             throw new UserNotFoundException("user not found!");
         else if (!resultSet.getBoolean("loggedin"))
-            throw new UserNotLoggedInException("user is not logged in!");
+            throw new UserNotLoggedInException("User is not logged in!");
         else {
             String sqlQuery = "insert into scholarship_request values (" +
                     null + ", " +

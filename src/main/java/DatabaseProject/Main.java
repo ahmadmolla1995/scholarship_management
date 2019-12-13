@@ -114,18 +114,22 @@ public class Main {
             }
 
             else if (command.equals("accept_by_supervisor")) {
+                System.out.print("supervisor username:");
+                String supervisorUsername = scanner.next();
                 System.out.print("scholarshipID:");
                 int scholarshipID = scanner.nextInt();
 
                 try {
                     ScholarshipVerificationBySupervisor scholarshipVerificationBySupervisor = new ScholarshipVerificationBySupervisorImpl();
-                    scholarshipVerificationBySupervisor.accept(scholarshipID);
+                    scholarshipVerificationBySupervisor.accept(scholarshipID, supervisorUsername);
                     logRecorder.recordScholarshipLog(ScholarshipStatus.AcceptedBySupervisor.toString(), Date.getDate(), scholarshipID);
                 } catch (ScholarshipVerificationBySupervisor.ScholarshipIDNotFoundException e) {
-                    System.err.println("scholarship id not found!");
+                    System.err.println(e.getMessage());
                 } catch (ScholarshipLogRecord.ScholarshipIDNotFoundException e) {
                     System.err.println(e.getMessage());
                 } catch (InvalidScholarshipStatusException e) {
+                    System.err.println(e.getMessage());
+                } catch (UserNotLoggedInException e) {
                     System.err.println(e.getMessage());
                 }
             }
@@ -144,6 +148,8 @@ public class Main {
                     System.err.println(e.getMessage());
                 } catch (InvalidScholarshipStatusException e) {
                     System.err.println(e.getMessage());
+                } catch (UserNotLoggedInException e) {
+                    System.err.println(e.getMessage());
                 }
             }
 
@@ -161,6 +167,8 @@ public class Main {
                     System.err.println(e.getMessage());
                 } catch (InvalidScholarshipStatusException e) {
                     System.err.println(e.getMessage());
+                } catch (UserNotLoggedInException e) {
+                    System.err.println(e.getMessage());
                 }
             }
 
@@ -177,6 +185,8 @@ public class Main {
                 } catch (ScholarshipLogRecord.ScholarshipIDNotFoundException e) {
                     System.err.println(e.getMessage());
                 } catch (InvalidScholarshipStatusException e) {
+                    System.err.println(e.getMessage());
+                } catch (UserNotLoggedInException e) {
                     System.err.println(e.getMessage());
                 }
             }

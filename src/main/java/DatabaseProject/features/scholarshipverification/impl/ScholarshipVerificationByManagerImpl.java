@@ -2,6 +2,7 @@ package DatabaseProject.features.scholarshipverification.impl;
 
 import DatabaseProject.DatabaseConfig;
 import DatabaseProject.Exceptions.InvalidScholarshipStatusException;
+import DatabaseProject.Exceptions.UserNotLoggedInException;
 import DatabaseProject.core.annotations.Service;
 import DatabaseProject.features.scholarshipverification.usecases.ScholarshipRejectionByManager;
 import DatabaseProject.features.scholarshipverification.usecases.ScholarshipVerificationByManager;
@@ -13,7 +14,7 @@ import java.sql.Statement;
 @Service
 public class ScholarshipVerificationByManagerImpl implements ScholarshipVerificationByManager {
     public void accept(int scholarshipID) throws ScholarshipVerificationByManager.ScholarshipIDNotFoundException,
-                                                SQLException, InvalidScholarshipStatusException {
+            SQLException, InvalidScholarshipStatusException, UserNotLoggedInException {
 
         Statement statement = DatabaseConfig.getConnection().createStatement();
         String existenceCheck = "select * from scholarship_request where scholarship_id = " + scholarshipID + ";";
@@ -23,6 +24,8 @@ public class ScholarshipVerificationByManagerImpl implements ScholarshipVerifica
             throw new ScholarshipVerificationByManager.ScholarshipIDNotFoundException("scholarship id not found");
         else if (!resultSet.getString("status").equals("AcceptedBySupervisor"))
             throw new InvalidScholarshipStatusException("scholarship status should be \"AcceptedBySupervisor\"");
+        else if (!resultSet.getBoolean("loggedin"))
+            throw new UserNotLoggedInException("user is not loggedin");
         else {
             String sqlQuery = "update scholarship_request set status = \"AcceptedByManager\""
                     + "where scholarship_id = " + scholarshipID + ";";

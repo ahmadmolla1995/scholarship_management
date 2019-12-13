@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="318f5b50-db55-44dd-8c92-ac3e73367a29" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/Exceptions/UserNotLoggedInException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TreeSetExample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipRejectionByManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipRejectionByManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipRejectionBySupervisorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipRejectionBySupervisorImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipRequestByStudentImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipRequestByStudentImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipRequestByStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipRequestByStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipVerificationByManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipVerificationByManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipVerificationBySupervisorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/impl/ScholarshipVerificationBySupervisorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipRejectionByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipRejectionByManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipRejectionBySupervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipRejectionBySupervisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipVerificationByManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipVerificationByManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipVerificationBySupervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/scholarshipverification/usecases/ScholarshipVerificationBySupervisor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/usermanagement/impl/LoginImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/usermanagement/impl/LoginImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/usermanagement/impl/LogoutImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseProject/features/usermanagement/impl/LogoutImpl.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,13 +63,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="DatabaseConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DatabaseProject.DatabaseConfig" />
       <module name="Session15" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="DatabaseProject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TreeSetExample.Main" />
+      <module name="Session15" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TreeSetExample.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,6 +105,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.DatabaseConfig" />
       </list>
@@ -102,7 +123,7 @@
       <updated>1575520074597</updated>
       <workItem from="1575520076754" duration="38513000" />
       <workItem from="1575611707029" duration="17000" />
-      <workItem from="1576078113890" duration="43704000" />
+      <workItem from="1576078113890" duration="57048000" />
     </task>
     <servers />
   </component>

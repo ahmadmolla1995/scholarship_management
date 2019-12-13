@@ -9,13 +9,13 @@ public class LoginImpl implements Login {
     public void login(String userName, String password) throws UserNotFoundException, SQLException {
         Statement statement = DatabaseConfig.getConnection().createStatement();
         String existsQuery = "select * from user where user_name = " + "\"" + userName + "\"" + ";";
+
         ResultSet resultSet = statement.executeQuery(existsQuery);
 
         if (!resultSet.next())
             throw new UserNotFoundException("user not found!");
-
-        if(resultSet.getBoolean("loggedin"))
-            System.out.println("You are logged in now!");
+        else if(resultSet.getBoolean("loggedin"))
+            System.out.println("User is logged in now!");
         else if(!password.equals(resultSet.getString("password")))
             System.out.println("Password is wrong! Try again.");
         else {
